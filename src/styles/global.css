@@ -1,0 +1,23 @@
+:root {
+    --primary: #fffcf6;
+    --accent: #534331;
+    --terminal-screen: #32323e;
+}
+
+body {
+    @apply bg-primary min-h-screen supports-[min-height:100cqh]:min-h-[100cqh] supports-[min-height:100svh]:min-h-[100svh];
+}
+
+img {
+    @apply max-w-none;
+}
+
+@font-face {
+    font-family: "IBM CGAthin";
+    src: url("/fonts/IBM_CGAthin.woff");
+}
+
+@font-face {
+    font-family: "Apricot 200L 2y";
+    src: url("/fonts/Apricot_200L-2y.woff");
+}

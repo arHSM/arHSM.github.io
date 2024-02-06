@@ -1,0 +1,11 @@
+.header {
+    @apply w-full h-16 text-accent px-8;
+}
+
+.headerLinks {
+    @apply flex items-center gap-2 h-full;
+}
+
+.headerLinksSeparator {
+    @apply min-w-[2px] bg-accent h-2 mx-1 rounded-sm;
+}

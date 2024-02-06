@@ -1,0 +1,22 @@
+---
+import styles from "@styles/header.module.css";
+
+const navLinks = {
+    "/blog": "Blog",
+    "/about": "About",
+};
+---
+
+<nav class={styles.header}>
+    <div class={styles.headerLinks}>
+        <a href="/" aria-label="Home">
+            <img src="/melt.png" alt="" width="40px" height="40px" />
+        </a>
+        <div class={styles.headerLinksSeparator}></div>
+        {
+            Object.entries(navLinks).map(([path, name]) => (
+                <a href={path}>{name}</a>
+            ))
+        }
+    </div>
+</nav>
