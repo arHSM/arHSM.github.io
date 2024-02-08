@@ -4,7 +4,7 @@
 
 .discordBanner {
     @apply h-32 w-full bg-cover bg-center;
-    background-image: url("/banner.png");
+    background-image: url("/banner.webp");
 }
 
 .discordUsername {

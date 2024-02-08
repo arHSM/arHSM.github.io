@@ -30,14 +30,14 @@
 @media (max-width: 1536px) {
     .rightBlobs {
         @apply max-w-[25rem];
-        content: url("/blobs_l.png");
+        content: url("/blobs_l.webp");
     }
 }
 
 @media (max-width: 1280px) {
     .rightBlobs {
         @apply max-w-[15rem];
-        content: url("/blobs_m.png");
+        content: url("/blobs_m.webp");
     }
 }
 
