@@ -1,0 +1,16 @@
+.aboutBanner {
+    @apply mb-11 aspect-[3/1] object-cover shadow-xl shadow-blobs-shadow;
+}
+
+.socialsGrid {
+    @apply mt-6 grid w-fit gap-x-3 gap-y-2;
+    grid-template-columns: 0.5fr 1fr;
+}
+
+.socialName {
+    @apply flex items-center gap-2;
+}
+
+.socialUsername {
+    @apply h-fit w-fit rounded-full bg-socials-background px-3 py-1 text-sm font-medium text-inherit no-underline;
+}

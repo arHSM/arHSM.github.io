@@ -1,8 +1,9 @@
 ---
-import BaseHead from "@components/BaseHead.astro";
 import FormattedDate from "@components/FormattedDate.astro";
-import Header from "@components/Header.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "@constants";
+import Terminal from "@components/Terminal.astro";
+import ThemedImage from "@components/ThemedImage.astro";
+import Base from "@layouts/Base.astro";
+import styles from "@styles/blog.module.css";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog")).sort(
@@ -10,38 +11,50 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body>
-        <Header />
-        <main>
-            <section>
-                <ul>
-                    {
-                        posts.map((post) => (
-                            <li>
-                                <a href={`/blog/${post.slug}/`}>
-                                    <img
-                                        width={720}
-                                        height={360}
-                                        src={post.data.heroImage}
+<Base>
+    <main class={styles.content}>
+        <section>
+            <Terminal>
+                $ curl https://arhsm.cat/rss.xml | parse | display<br />
+                <br />
+                [*] Parsing RSS feed<br />
+                [*] Displaying results
+            </Terminal>
+        </section>
+        <section class={styles.listing}>
+            {
+                posts.map(
+                    ({
+                        slug,
+                        data: { title, pubDate, heroImage, heroImageDark },
+                    }) => (
+                        <a class={styles.blogEntry} href={`/blog/${slug}/`}>
+                            {heroImage ? (
+                                heroImageDark ? (
+                                    <ThemedImage
+                                        class={styles.blogHeroImage}
+                                        light={heroImage}
+                                        dark={heroImageDark}
                                         alt=""
+                                        width="100%"
                                     />
-                                    <h4 class="title">{post.data.title}</h4>
-                                    <p class="date">
-                                        <FormattedDate
-                                            date={post.data.pubDate}
-                                        />
-                                    </p>
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
-        </main>
-    </body>
-</html>
+                                ) : (
+                                    <img
+                                        class={styles.blogHeroImage}
+                                        src={heroImage}
+                                        alt=""
+                                        width="100%"
+                                    />
+                                )
+                            ) : null}
+                            <h4 class={styles.blogTitle}>{title}</h4>
+                            <p class={styles.blogDate}>
+                                <FormattedDate date={pubDate} />
+                            </p>
+                        </a>
+                    ),
+                )
+            }
+        </section>
+    </main>
+</Base>

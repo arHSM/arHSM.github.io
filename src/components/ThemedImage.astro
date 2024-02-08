@@ -1,0 +1,19 @@
+---
+import styles from "@styles/themedimage.module.css";
+
+type Props = {
+    light: string;
+    dark: string;
+    class?: string;
+} & Record<string, any>;
+
+const { light, dark, class: className, ...rest } = Astro.props;
+---
+
+<img
+    class:list={[styles.themedImage, className]}
+    style={`--data-dark-src: url(${JSON.stringify(dark)})`}
+    src={light}
+    alt=""
+    {...rest}
+/>

@@ -1,37 +1,34 @@
 ---
+import Terminal from "@components/Terminal.astro";
 import Base from "@layouts/Base.astro";
 import styles from "@styles/home.module.css";
 ---
 
 <Base>
-    <br />
-    <h5>WIP NERDS</h5><br />
-    <div class={styles.content}>
-        <div class={styles.left}>
+    <main class={styles.content}>
+        <section class={styles.left}>
             <h1 class={styles.leftHeading}>
                 I'm <span class={styles.leftHeadingName}>arHSM</span>
             </h1>
-            <div class={styles.terminalOverflow}>
-                <div class={styles.terminal}>
-                    <div class={styles.terminalText}>
-                        $ cat ~/meow.txt<br />
-                        <br />
-                        &gt; I hate living<br />
-                        &gt; Cats cats cats<br />
-                        &gt; I love old technology and rewriting things<br />
-                        &gt; I make cute fluent cat blobs<br />
-                        &gt; Meow?<br />
-                        &gt; I read RFCs for no reason and write code<br />
-                        &gt; Sucker for a11y<br />
-                        <br />
-                        <span class={styles.terminalTextRed}
-                            >[program exited - 0]</span
-                        ><br />
-                        <br />
-                        $
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            <Terminal>
+                $ cat ~/meow.txt<br />
+                <br />
+                &gt; I hate living<br />
+                &gt; Cats cats cats<br />
+                &gt; I love old technology and rewriting things<br />
+                &gt; I make cute fluent cat blobs<br />
+                &gt; Meow?<br />
+                &gt; I read RFCs for no reason and write code<br />
+                &gt; Sucker for a11y
+            </Terminal>
+        </section>
+        <section class={styles.right}>
+            <img class={styles.rightBlobs} src="/blobs_xl.png" alt="" />
+            <img
+                class:list={[styles.rightBlobs, styles.rightBlobsShadow]}
+                src="/blobs_xl.png"
+                alt=""
+            />
+        </section>
+    </main>
 </Base>

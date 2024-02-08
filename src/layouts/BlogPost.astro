@@ -1,53 +1,56 @@
 ---
-import BaseHead from "@components/BaseHead.astro";
 import FormattedDate from "@components/FormattedDate.astro";
-import Header from "@components/Header.astro";
+import ThemedImage from "@components/ThemedImage.astro";
+import Base from "@layouts/Base.astro";
+import styles from "@styles/blogpost.module.css";
 import type { CollectionEntry } from "astro:content";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, heroImageDark } =
+    Astro.props;
 ---
 
-<html lang="en">
-    <head>
-        <BaseHead title={title} description={description} />
-    </head>
-    <body>
-        <Header />
-        <main>
-            <article>
-                <div class="hero-image">
+<Base title={`arHSM ･ ${title}`} description={description}>
+    <main class={styles.content}>
+        <article>
+            {
+                heroImage ? (
+                    heroImageDark ? (
+                        <ThemedImage
+                            class={styles.heroImage}
+                            light={heroImage}
+                            dark={heroImageDark}
+                            alt=""
+                            width="100%"
+                        />
+                    ) : (
+                        <img
+                            class={styles.heroImage}
+                            src={heroImage}
+                            alt=""
+                            width="100%"
+                        />
+                    )
+                ) : null
+            }
+            <section>
+                <h1 class={styles.blogTitle}>{title}</h1>
+                <div class={styles.blogDate}>
+                    <FormattedDate date={pubDate} />
                     {
-                        heroImage && (
-                            <img
-                                width={1020}
-                                height={510}
-                                src={heroImage}
-                                alt=""
-                            />
+                        updatedDate && (
+                            <>
+                                ･<FormattedDate date={updatedDate} />
+                            </>
                         )
                     }
                 </div>
-                <div class="prose">
-                    <div class="title">
-                        <div class="date">
-                            <FormattedDate date={pubDate} />
-                            {
-                                updatedDate && (
-                                    <div class="last-updated-on">
-                                        Last updated on{" "}
-                                        <FormattedDate date={updatedDate} />
-                                    </div>
-                                )
-                            }
-                        </div>
-                        <h1>{title}</h1>
-                        <hr />
-                    </div>
-                    <slot />
-                </div>
-            </article>
-        </main>
-    </body>
-</html>
+                <hr class={styles.blogSeparator} />
+            </section>
+            <section>
+                <slot />
+            </section>
+        </article>
+    </main>
+</Base>

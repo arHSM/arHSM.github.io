@@ -1,0 +1,24 @@
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+    @apply break-all;
+}
+
+.heroImage {
+    @apply mb-11 aspect-[3/1] w-full object-cover shadow-xl shadow-blobs-shadow;
+}
+
+.blogTitle {
+    @apply text-center;
+}
+
+.blogDate {
+    @apply mb-6 text-center font-mono text-sm text-accent;
+}
+
+.blogSeparator {
+    @apply mx-auto w-1/2 opacity-25;
+}

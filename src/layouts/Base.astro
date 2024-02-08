@@ -2,15 +2,42 @@
 import BaseHead from "@components/BaseHead.astro";
 import Header from "@components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@constants";
+
+interface Props {
+    title?: string;
+    description?: string;
+    image?: string;
+}
+
+const {
+    title = SITE_TITLE,
+    description = SITE_DESCRIPTION,
+    image,
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <BaseHead title={title} description={description} image={image} />
+        <script>
+            const theme = localStorage.getItem("theme");
+
+            if (
+                theme === "dark" ||
+                (!theme &&
+                    window.matchMedia &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+                localStorage.setItem("theme", "dark");
+                document.querySelector("html")!.classList.add("dark");
+            }
+        </script>
     </head>
     <body>
         <Header />
+        <div class="navSpacer"></div>
         <slot />
+        <div class="noise"></div>
     </body>
 </html>

@@ -1,4 +1,6 @@
 ---
+import Dark from "@components/Icons/Dark.astro";
+import Light from "@components/Icons/Light.astro";
 import styles from "@styles/header.module.css";
 
 const navLinks = {
@@ -10,7 +12,7 @@ const navLinks = {
 <nav class={styles.header}>
     <div class={styles.headerLinks}>
         <a href="/" aria-label="Home">
-            <img src="/melt.png" alt="" width="40px" height="40px" />
+            <img src="/melt_256.png" alt="" width="40px" height="40px" />
         </a>
         <div class={styles.headerLinksSeparator}></div>
         {
@@ -19,4 +21,39 @@ const navLinks = {
             ))
         }
     </div>
+    <button class={styles.headerThemeToggle}>
+        <Light class={styles.headerThemeToggleLight} />
+        <Dark class={styles.headerThemeToggleDark} />
+    </button>
 </nav>
+<script
+    define:vars={{
+        headerClass: styles.header,
+        headerScrolledClass: styles.scrolled,
+        themeToggleClass: styles.headerThemeToggle,
+    }}
+>
+    const header = document.querySelector(`.${headerClass}`);
+    const toggle = header.querySelector(`.${themeToggleClass}`);
+    const htmlClassList = document.body.parentElement.classList;
+
+    let onTop = window.scrollY === 0;
+
+    document.addEventListener("scroll", () => {
+        if (window.scrollY > 0 && onTop) {
+            onTop = false;
+            header.classList.add(headerScrolledClass);
+        } else if (window.scrollY === 0) {
+            onTop = true;
+            header.classList.remove(headerScrolledClass);
+        }
+    });
+
+    toggle.addEventListener("click", () => {
+        htmlClassList.toggle("dark");
+        localStorage.setItem(
+            "theme",
+            htmlClassList.contains("dark") ? "dark" : "light",
+        );
+    });
+</script>

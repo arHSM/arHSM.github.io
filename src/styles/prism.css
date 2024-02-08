@@ -1,0 +1,232 @@
+/*
+ * Modified from https://github.com/antfu/prism-theme-vars
+ *
+ * MIT License
+ * 
+ * Copyright (c) 2021 Anthony Fu<https://github.com/antfu>
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+:root {
+    /* Tokens */
+    --prism-comment: #00584a;
+    --prism-string: #ff6600;
+    --prism-literal: #00a31b;
+    --prism-keyword: #3f5cff;
+    --prism-function: #e90f7c;
+    --prism-deleted: #dd1708;
+    --prism-class: #0b924f;
+    --prism-builtin: #02ad5d;
+    --prism-property: #57a300;
+    --prism-namespace: #7354ff;
+    --prism-punctuation: #634a2e;
+    --prism-decorator: var(--prism-class);
+    --prism-operator: var(--prism-punctuation);
+    --prism-number: var(--prism-literal);
+    --prism-boolean: var(--prism-literal);
+    --prism-variable: var(--prism-literal);
+    --prism-constant: var(--prism-literal);
+    --prism-symbol: var(--prism-literal);
+    --prism-interpolation: var(--prism-literal);
+    --prism-selector: var(--prism-keyword);
+    --prism-keyword-control: var(--prism-keyword);
+    --prism-regex: var(--prism-string);
+    --prism-json-property: var(--prism-property);
+
+    /* Token Styles */
+    --prism-comment-style: italic;
+    --prism-url-decoration: underline;
+
+    /* Extension */
+    /* --prism-line-number: #ffe9cf; */
+    /* --prism-line-number-gutter: #ffe9cf; */
+    /* --prism-line-highlight-background: #ffe9cf; */
+    --prism-marker-color: var(--accent);
+    --prism-marker-opacity: 0.8;
+    --prism-marker-font-size: 0.9em;
+}
+
+html.dark {
+    --prism-comment: #77dfff;
+    --prism-string: #ff9046;
+    --prism-literal: #63fa7c;
+    --prism-keyword: #8ab9ff;
+    --prism-function: #f892c5;
+    --prism-deleted: #ff877e;
+    --prism-class: #5ff0a7;
+    --prism-builtin: #27e667;
+    --prism-property: #9de747;
+    --prism-namespace: #d1c6ff;
+    --prism-punctuation: #ffcf97;
+
+    /* --prism-line-number: #26263a; */
+    /* --prism-line-number-gutter: #26263a; */
+    /* --prism-line-highlight-background: #26263a; */
+}
+
+/* Tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: var(--prism-comment);
+    font-style: var(--prism-comment-style);
+}
+
+.token.namespace {
+    color: var(--prism-namespace);
+}
+
+.token.interpolation {
+    color: var(--prism-interpolation);
+}
+
+.token.string {
+    color: var(--prism-string);
+}
+
+.token.punctuation {
+    color: var(--prism-punctuation);
+}
+
+.token.operator {
+    color: var(--prism-operator);
+}
+
+.token.keyword.module,
+.token.keyword.control-flow {
+    color: var(--prism-keyword-control);
+}
+
+.token.url,
+.token.symbol,
+.token.inserted {
+    color: var(--prism-symbol);
+}
+
+.token.constant {
+    color: var(--prism-constant);
+}
+
+.token.string.url {
+    text-decoration: var(--prism-url-decoration);
+}
+
+.token.boolean,
+.language-json .token.boolean {
+    color: var(--prism-boolean);
+}
+
+.token.number,
+.language-json .token.number {
+    color: var(--prism-number);
+}
+
+.token.variable {
+    color: var(--prism-variable);
+}
+
+.token.keyword {
+    color: var(--prism-keyword);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.selector {
+    color: var(--prism-selector);
+}
+
+.token.function {
+    color: var(--prism-function);
+}
+
+.token.deleted {
+    color: var(--prism-deleted);
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.class-name {
+    color: var(--prism-class);
+}
+
+.token.tag,
+.token.builtin {
+    color: var(--prism-builtin);
+}
+
+.token.attr-name,
+.token.property,
+.token.entity {
+    color: var(--prism-property);
+}
+
+.language-json .token.property {
+    color: var(--prism-json-property);
+}
+
+.token.regex {
+    color: var(--prism-regex);
+}
+
+.token.decorator,
+.token.annotation {
+    color: var(--prism-decorator);
+}
+
+/*
+ * overrides color-values for the Line Numbers plugin
+ * http://prismjs.com/plugins/line-numbers/
+ */
+
+/* .line-numbers .line-numbers-rows {
+    border-right-color: var(--prism-line-number);
+}
+
+.line-numbers-rows > span:before {
+    color: var(--prism-line-number-gutter);
+} */
+
+/*
+ * overrides color-values for the Line Highlight plugin
+ * http://prismjs.com/plugins/line-highlight/
+ */
+
+/* .line-highlight {
+    background: var(--prism-line-highlight-background);
+} */
+
+/* Language marker */
+div[data-code-wrapper]:before {
+    position: absolute;
+    top: 0.4em;
+    right: 0.8em;
+    content: attr(data-code-wrapper);
+    opacity: var(--prism-marker-opacity);
+    font-size: var(--prism-marker-font-size);
+    color: var(--prism-marker-color);
+}

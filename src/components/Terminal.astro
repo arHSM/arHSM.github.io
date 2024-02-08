@@ -1,0 +1,21 @@
+---
+import styles from "@styles/terminal.module.css";
+---
+
+<div class={styles.terminalOverflow}>
+    <div class:list={styles.terminal}>
+        <div class={styles.terminalText}>
+            <span class={styles.terminalTextGreen}>
+                <slot />
+                <br />
+                <br />
+            </span>
+            <span class={styles.terminalTextRed}>[program exited - 0]</span>
+            <span class={styles.terminalTextGreen}>
+                <br />
+                <br />
+                $ <span class={styles.terminalCursor}></span>
+            </span>
+        </div>
+    </div>
+</div>

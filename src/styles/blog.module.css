@@ -1,0 +1,23 @@
+.content {
+    @apply max-w-7xl;
+}
+
+.listing {
+    @apply mt-20 grid grid-cols-2;
+}
+
+.blogEntry {
+    @apply text-inherit no-underline;
+}
+
+.blogHeroImage {
+    @apply mb-11 aspect-[3/1] object-cover shadow-lg shadow-blobs-shadow;
+}
+
+.blogTitle {
+    @apply text-inherit;
+}
+
+.blogDate {
+    @apply mb-6 font-mono text-sm text-accent;
+}
