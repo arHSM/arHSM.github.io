@@ -16,8 +16,10 @@
 :root {
     --primary: #fffcf6;
     --accent: #534331;
+    --accent-bright: #725e47;
     --text-primary: #000000;
     --text-link: #763bff;
+    --mark-background: #feffa9;
     --code-background: #ffe9cf;
     --thead-background: #ffe9cf;
     --thead-border: #f3d1a9;
@@ -38,8 +40,10 @@
 html.dark {
     --primary: #0b0b0e;
     --accent: #d1d1e0;
+    --accent-bright: #f4f4fd;
     --text-primary: #ffffff;
     --text-link: #c1a0ff;
+    --mark-background: #ababdf;
     --code-background: #26263a;
     --thead-background: #26263a;
     --thead-border: #3d3d4e;
@@ -60,8 +64,12 @@ body {
     @apply relative flex min-h-screen flex-col items-center scroll-smooth bg-primary px-24 text-text-primary supports-[min-height:100cqh]:min-h-[100cqh] supports-[min-height:100svh]:min-h-[100svh] max-[900px]:px-8;
 }
 
+main {
+    @apply w-full max-w-7xl;
+}
+
 article {
-    @apply max-w-7xl;
+    @apply mb-6 max-w-7xl;
 }
 
 img {
@@ -235,11 +243,7 @@ kbd:active {
 }
 
 mark {
-    @apply px-2;
-}
-
-article {
-    @apply mb-6;
+    @apply bg-mark-background px-2;
 }
 
 .navSpacer {

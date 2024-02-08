@@ -6,8 +6,10 @@ export default {
             colors: {
                 primary: "var(--primary)",
                 accent: "var(--accent)",
+                "accent-bright": "var(--accent-bright)",
                 "text-primary": "var(--text-primary)",
                 "text-link": "var(--text-link)",
+                "mark-background": "var(--mark-background)",
                 "code-background": "var(--code-background)",
                 "thead-background": "var(--thead-background)",
                 "thead-border": "var(--thead-border)",

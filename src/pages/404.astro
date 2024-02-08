@@ -6,14 +6,18 @@ import styles from "@styles/404.module.css";
 
 <Base>
     <main class={styles.content}>
-        <Terminal exitCode={127}>
-            $ curl "$LOCATION"<br />
-            <br />
-            &lt; GET "$LOCATION" HTTP/2<br />
-            &lt; Host: arhsm.cat<br />
-            &lt; User-Agent: cute-cats/89423<br />
-            &lt; Accept: */*<br />
-            <br /> &gt; 404 - Resource Not Found
-        </Terminal>
+        <Terminal exitCode={127} class="terminal-404">Loading...</Terminal>
     </main>
 </Base>
+<script>
+    document.querySelector(".terminal-404 div div span")!.innerHTML =
+        `$ curl ${JSON.stringify(window.location.href)}<br />
+<br />
+&lt; GET ${window.location.href} HTTP/2<br />
+&lt; Host: arhsm.cat<br />
+&lt; User-Agent: cute-cats/89423<br />
+&lt; Accept: */*<br />
+<br /> &gt; 404 - Resource Not Found
+<br />
+<br />`;
+</script>

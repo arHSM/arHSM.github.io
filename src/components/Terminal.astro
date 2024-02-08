@@ -2,13 +2,14 @@
 import styles from "@styles/terminal.module.css";
 
 interface Props {
+    class?: string;
     exitCode?: number;
 }
 
-const { exitCode = 0 } = Astro.props;
+const { class: className, exitCode = 0 } = Astro.props;
 ---
 
-<div class={styles.terminalOverflow}>
+<div class:list={[className, styles.terminalOverflow]}>
     <div class:list={styles.terminal}>
         <div class={styles.terminalText}>
             <span class={styles.terminalTextGreen}>

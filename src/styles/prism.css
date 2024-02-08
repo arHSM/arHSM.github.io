@@ -222,11 +222,9 @@ html.dark {
 
 /* Language marker */
 div[data-code-wrapper]:before {
-    position: absolute;
-    top: 0.4em;
-    right: 0.8em;
     content: attr(data-code-wrapper);
     opacity: var(--prism-marker-opacity);
     font-size: var(--prism-marker-font-size);
     color: var(--prism-marker-color);
+    @apply absolute right-2 top-2 rounded-md bg-socials-border px-2 py-1;
 }
