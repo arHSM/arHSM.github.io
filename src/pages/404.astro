@@ -1,0 +1,19 @@
+---
+import Terminal from "@components/Terminal.astro";
+import Base from "@layouts/Base.astro";
+import styles from "@styles/404.module.css";
+---
+
+<Base>
+    <main class={styles.content}>
+        <Terminal exitCode={127}>
+            $ curl "$LOCATION"<br />
+            <br />
+            &lt; GET "$LOCATION" HTTP/2<br />
+            &lt; Host: arhsm.cat<br />
+            &lt; User-Agent: cute-cats/89423<br />
+            &lt; Accept: */*<br />
+            <br /> &gt; 404 - Resource Not Found
+        </Terminal>
+    </main>
+</Base>

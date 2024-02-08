@@ -1,5 +1,11 @@
 ---
 import styles from "@styles/terminal.module.css";
+
+interface Props {
+    exitCode?: number;
+}
+
+const { exitCode = 0 } = Astro.props;
 ---
 
 <div class={styles.terminalOverflow}>
@@ -10,7 +16,9 @@ import styles from "@styles/terminal.module.css";
                 <br />
                 <br />
             </span>
-            <span class={styles.terminalTextRed}>[program exited - 0]</span>
+            <span class={styles.terminalTextRed}
+                >[program exited - {exitCode}]</span
+            >
             <span class={styles.terminalTextGreen}>
                 <br />
                 <br />
