@@ -20,7 +20,7 @@ const {
 <html lang="en">
     <head>
         <BaseHead title={title} description={description} image={image} />
-        <script>
+        <script is:inline>
             const theme = localStorage.getItem("theme");
 
             if (
@@ -30,7 +30,7 @@ const {
                     window.matchMedia("(prefers-color-scheme: dark)").matches)
             ) {
                 localStorage.setItem("theme", "dark");
-                document.querySelector("html")!.classList.add("dark");
+                document.querySelector("html").classList.add("dark");
             }
         </script>
     </head>

@@ -3,7 +3,7 @@
 }
 
 .listing {
-    @apply mt-20 grid grid-cols-2;
+    @apply mt-20 grid grid-cols-1 md:grid-cols-2;
 }
 
 .blogEntry {

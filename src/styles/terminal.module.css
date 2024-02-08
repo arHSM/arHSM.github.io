@@ -1,5 +1,5 @@
 .terminalOverflow {
-    @apply max-w-[calc(100%+4rem)] -translate-x-8 overflow-hidden rounded-2xl;
+    @apply w-[calc(100%+8rem)] max-w-[calc(100%+4rem)] -translate-x-8 overflow-hidden rounded-2xl;
 }
 
 .terminal {

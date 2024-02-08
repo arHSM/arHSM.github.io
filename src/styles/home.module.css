@@ -23,7 +23,7 @@
 }
 
 .rightBlobsShadow {
-    @apply absolute -z-20;
+    @apply absolute -z-20 blur;
     filter: drop-shadow(0 0 5rem var(--blobs-shadow));
 }
 
@@ -48,6 +48,7 @@
 
     .right {
         @apply h-0 w-0 basis-0;
+        display: none;
     }
 
     .right * {
