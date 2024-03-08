@@ -23,7 +23,7 @@ export function mdTransform(options: {}) {
                     return wrapNode(
                         node,
                         {
-                            start: `<a href=${JSON.stringify(slugger.slug(toString(node)))} data-heading-wrapper>`,
+                            start: `<a href=${JSON.stringify("#" + slugger.slug(toString(node)))} data-heading-wrapper>`,
                             end: "</a>",
                         },
                         parent,
