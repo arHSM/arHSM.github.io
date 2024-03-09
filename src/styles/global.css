@@ -60,6 +60,10 @@ html.dark {
     --socials-border: #26263a;
 }
 
+html {
+    @apply scroll-smooth scroll-pt-24;
+}
+
 body {
     @apply relative flex min-h-screen flex-col items-center scroll-smooth bg-primary px-24 text-text-primary supports-[min-height:100cqh]:min-h-[100cqh] supports-[min-height:100svh]:min-h-[100svh] max-[900px]:px-8;
 }
